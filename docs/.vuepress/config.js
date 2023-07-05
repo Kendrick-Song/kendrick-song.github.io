@@ -20,7 +20,7 @@ module.exports = {
         // 导航栏配置
         nav: [
             { text: '首页', link: '/' },
-            { text: '🐳 Docker', link: '/Docker/Get started/Part 7：多容器应用（Multi-container apps)' },
+            { text: '🐳 Docker', link: '/🐳 Docker/Get started/Part 7：多容器应用（Multi-container apps)' },
             { text: '📚 博客搭建', link: '/📚 博客搭建/构建 VuePress 容器镜像' },
             {
                 text: '关于',
@@ -31,7 +31,7 @@ module.exports = {
         ],
         // 侧边栏配置
         sidebar: {
-            '/Docker/': [
+            '/🐳 Docker/': [
                 {
                     title: 'Get started',
                     collapsable: false, // 可选的, 默认值是 true,
