@@ -13,6 +13,6 @@ jobs:
         ACCESS_TOKEN: ${{ secrets.ACCESS_TOKEN }}
         TARGET_REPO: Kendrick-Song/kendrick-song.github.io
         TARGET_BRANCH: deploy
-        BUILD_SCRIPT: yarn && yarn build
+        BUILD_SCRIPT: yarn && yarn docs:build
         BUILD_DIR: .vuepress/dist/
         COMMIT_MESSAGE:  Auto deploy by the Vuepress-deploy
