@@ -2,7 +2,7 @@ module.exports = {
     // 基本配置
     base: '/',
     title: 'Kendrick Song\'s Blog',
-    description: 'Kendrick Song 的个人博客，主要记录学习过程的点点滴滴',
+    description: '这我女朋友哈哈哈哈哈哈哈哈羡慕吧哈哈哈哈哈哈',
     head: [
         ['link', { rel: 'icon', href: '/favicon1.ico' }]
     ],
