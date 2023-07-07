@@ -15,4 +15,4 @@ jobs:
         TARGET_BRANCH: deploy
         BUILD_SCRIPT: yarn && yarn docs:build
         BUILD_DIR: docs/.vuepress/dist
-        COMMIT_MESSAGE:  Auto deploy by the Vuepress-deploy
+        COMMIT_MESSAGE:  Auto deploy by the vuepress-deploy
