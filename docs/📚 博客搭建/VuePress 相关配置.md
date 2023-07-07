@@ -267,7 +267,13 @@ sidebar: {
 
 Git 相关步骤参考 [VuePress 部署](./VuePress%20部署.md)。
 
+配置完成后依然不显示更新时间，请参考 [由 lastUpdated 无效发现的 Docker 容器内 Git 仓库跨文件系统问题](./踩坑记录.md#由-lastupdated-无效发现的-docker-容器内-git-仓库跨文件系统问题)。
+
+配置完成后修改时区显示，请参考 [lastUpdated-时区修改](./踩坑记录.md#lastupdated-时区修改)。
+
 :::
+
+
 
 ## 插件配置
 
