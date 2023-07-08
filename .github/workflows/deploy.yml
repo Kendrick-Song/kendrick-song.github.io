@@ -22,6 +22,7 @@ jobs:
       env:
         # work around for "error:0308010C:digital envelope routines::unsupported"
         NODE_OPTIONS: --openssl-legacy-provider
+        TZ: 'Asia/Shanghai'
     
     # 部署到 GitHub Pages
     - name: Deploy
