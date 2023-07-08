@@ -2,9 +2,7 @@ name: Build and Deploy
 on: 
   push:
     branches:
-       - main
-env:
-  TZ: 'Asia/Shanghai'
+       - main 
 jobs:
   build-and-deploy:
     runs-on: ubuntu-latest
@@ -23,3 +21,5 @@ jobs:
         BUILD_SCRIPT: yarn && yarn docs:build
         BUILD_DIR: docs/.vuepress/dist
         COMMIT_MESSAGE:  Auto deploy by the vuepress-deploy
+        GIT_DISCOVERY_ACROSS_FILESYSTEM: 1
+        TZ: 'Asia/Shanghai'
