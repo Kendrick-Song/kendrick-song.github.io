@@ -21,7 +21,7 @@ module.exports = {
         editLinks: true,
         docsBranch: 'main',
         docsDir: 'docs',
-        lastUpdated: '最后更新', // string | boolean
+        lastUpdated: 'Last Updated', // string | boolean
         // 导航栏配置
         nav: [
             { text: '首页', link: '/' },
