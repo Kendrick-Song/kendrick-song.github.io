@@ -3,6 +3,8 @@ on:
   push:
     branches:
        - main
+env:
+  TZ: 'Asia/Shanghai'
 jobs:
   build-and-deploy:
     runs-on: ubuntu-latest
