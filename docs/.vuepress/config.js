@@ -3,6 +3,11 @@ module.exports = {
     base: '/',
     title: 'Kendrick Song\'s Blog',
     description: '这我女朋友哈哈哈哈哈哈哈哈羡慕吧哈哈哈哈哈哈',
+    locales: {
+        '/': {
+            lang: 'zh-CN',
+        }
+    },
     head: [
         ['link', { rel: 'icon', href: '/favicon1.ico' }]
     ],
