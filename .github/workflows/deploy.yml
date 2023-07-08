@@ -19,6 +19,8 @@ jobs:
     # 生成静态文件
     - name: Build
       run: yarn && yarn docs:build
+      env:
+        NODE_OPTIONS: --openssl-legacy-provider
     
     # 部署到 GitHub Pages
     - name: Deploy
