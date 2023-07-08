@@ -17,7 +17,7 @@
 这个仓库就是我们博客的仓库，其应当有两个分支，在后续 push 时尽量遵从：
 
 - main：存储项目所有的文件，除构建文件（比如 `dist`）；
-- view：用于 Github Pages 的展示，存放项目的构建后文件。
+- deploy：博客的部署分支，用于 Github Pages 的展示，存放项目的构建后文件。
 
 ### 创建本地仓库
 
@@ -72,7 +72,6 @@ $ git config --global user.email johndoe@example.com
 
    执行后一路回车即可。
    
-
 3. 查看 SSH 公钥，并复制下来：
 
    ```bash
@@ -116,3 +115,11 @@ $ git push -u origin master:main
 ```
 
 > `-u`  参数其实就相当于记录了 push 到远端分支的默认值，这样当下次我们还想要继续 push 的这个远端分支的时候推送命令就可以简写成 `git push` 即可
+
+## 部署
+
+基础部署请参考 [官方文档](https://vuepress.vuejs.org/zh/guide/deploy.html#github-pages)，这里只介绍使用 Github Actions 的集成部署。
+
+GitHub Actions 是一种持续集成和持续交付 (CI/CD) 平台，可用于自动执行生成、测试和部署管道。 您可以创建工作流程来构建和测试存储库的每个拉取请求，或将合并的拉取请求部署到生产环境。
+
+可配置 GitHub Actions 工作流，使其在存储库中发生事件（例如打开拉取请求或创建问题）时触发 。 工作流包含一个或多个可按顺序或并行运行的作业。 每个作业都将在其自己的虚拟机运行器中或在容器中运行，并具有一个或多个步骤，用于运行定义的脚本或运行动作。动作是一个可重用的扩展，可简化工作流 。
