@@ -118,10 +118,70 @@ $ git push -u origin master:main
 
 > `-u`  参数其实就相当于记录了 push 到远端分支的默认值，这样当下次我们还想要继续 push 的这个远端分支的时候推送命令就可以简写成 `git push` 即可
 
-## 部署
+### Github Action 自动部署
 
-基础部署请参考 [官方文档](https://vuepress.vuejs.org/zh/guide/deploy.html#github-pages)，这里只介绍使用 Github Actions 的集成部署。
+> 基础部署请参考 [官方文档](https://vuepress.vuejs.org/zh/guide/deploy.html#github-pages)，这里只介绍使用 Github Actions 的集成部署。
 
 GitHub Actions 是一种持续集成和持续交付 (CI/CD) 平台，可用于自动执行生成、测试和部署管道。 您可以创建工作流程来构建和测试存储库的每个拉取请求，或将合并的拉取请求部署到生产环境。
 
 可配置 GitHub Actions 工作流，使其在存储库中发生事件（例如打开拉取请求或创建问题）时触发 。 工作流包含一个或多个可按顺序或并行运行的作业。 每个作业都将在其自己的虚拟机运行器中或在容器中运行，并具有一个或多个步骤，用于运行定义的脚本或运行动作。动作是一个可重用的扩展，可简化工作流 。
+
+具体学习可参考：
+
+- [GitHub Actions 快速入门 - GitHub 文档](https://docs.github.com/zh/actions/quickstart)
+- [GitHub Actions 入门教程 - 阮一峰的网络日志 (ruanyifeng.com)](https://www.ruanyifeng.com/blog/2019/09/getting-started-with-github-actions.html)
+
+使用自动部署后，我们将文档 push 到远程仓库的主分支时，Github 会自动帮我们对文档进行打包和发布，不再需要手动进入到打包文件夹，再推送到远程仓库。
+
+1. 生成 Token：[管理个人访问令牌 - GitHub Enterprise Server 3.7 Docs](https://docs.github.com/zh/enterprise-server@3.7/authentication/keeping-your-account-and-data-secure/managing-your-personal-access-tokens)
+1. 配置 Secrets：
+   1. 进入你存放你博客源码的项目，然后依次点击 Settings → Secrets，
+   1. 点击右上角的 New repository secret，新建一个 Secret。这里的名字要命名为 ACCESS_TOKEN，然后 Value 就是我们上一步中所生成的 Token。
+1. 编写 Action：进入项目的的 Actions 选项，然后新建一个 workflow，默认新建的 workflow 名字是 `main.yml` ，这个可以自定义，具体内容如下：
+
+```yaml
+# deploy.yml
+name: Build and Deploy
+
+# 仅在 main 分支被 push 时触发
+on: 
+  push:
+    branches:
+       - main
+
+# 全局环境变量
+env:
+  # 用于设定 LastUpdated 的时区
+  TZ: 'Asia/Shanghai'
+    
+# 任务
+jobs:
+  # 任务 1
+  build-and-deploy:
+    # 运行环境
+    runs-on: ubuntu-latest
+    steps:
+    # 拉取代码
+    - name: Checkout
+      uses: actions/checkout@master
+      with:
+        # 「最近更新时间」 等 git 日志相关信息，需要拉取全部提交记录
+        fetch-depth: 0
+        
+    # 生成静态文件
+    - name: Build
+      run: yarn && yarn docs:build
+      env:
+        # work around for "error:0308010C:digital envelope routines::unsupported"
+        NODE_OPTIONS: --openssl-legacy-provider
+    
+    # 部署到 GitHub Pages
+    - name: Deploy
+      uses: JamesIves/github-pages-deploy-action@v4
+      with:
+        token: ${{ secrets.ACCESS_TOKEN }} # 也就是我们刚才生成的 secret
+        branch: gh-pages # 部署到 gh-pages 分支，因为 main 分支存放的一般是源码，而 gh-pages 分支则用来存放生成的静态文件
+        folder: docs/.vuepress/dist # vuepress 生成的静态文件存放的地方
+```
+
+保存修改并 commit，就可以生效了。

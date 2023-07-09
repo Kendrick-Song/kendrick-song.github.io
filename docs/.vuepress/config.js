@@ -69,6 +69,7 @@ module.exports = {
                         'VuePress 相关配置',
                         'VuePress 部署',
                         '踩坑记录',
+                        '相关参考',
                     ],
                 }
             ]
