@@ -1,5 +1,7 @@
 # 构建 VuePress 容器镜像
 
+[[toc]]
+
 1. 新建一个名为 `Dockerfile` 的文件，并根据 [快速上手 | VuePress (vuejs.org)](https://vuepress.vuejs.org/zh/guide/getting-started.html) 中环境配置的相关步骤编写，具体内容如下：
 
    ```dockerfile

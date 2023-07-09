@@ -2,7 +2,7 @@ module.exports = {
     // 基本配置
     base: '/',
     title: 'Kendrick Song\'s Blog',
-    description: '这我女朋友哈哈哈哈哈哈哈哈羡慕吧哈哈哈哈哈哈',
+    description: 'Kendrick Song 的个人学习记录',
     locales: {
         '/': {
             lang: 'zh-CN',
@@ -11,17 +11,22 @@ module.exports = {
     head: [
         ['link', { rel: 'icon', href: '/favicon1.ico' }]
     ],
+    markdown: {
+        lineNumbers: true
+    },
     // 默认主题配置
     themeConfig: {
         // 平滑滚动
         smoothScroll: true,
-        // 最后更新时间
-        // repo: 'Kendrick-Song/kendrick-song.github.io',
-        // repoLabel: '查看源码',
+        // 右上角 Github 仓库链接
+        repo: 'Kendrick-Song/kendrick-song.github.io',
+        // 底部编辑链接
         editLinks: true,
+        editLinkText: '帮助我们改善此页面！',
         docsBranch: 'main',
         docsDir: 'docs',
-        lastUpdated: 'Last Updated', // string | boolean
+        // 最后更新时间
+        lastUpdated: '最后更新', // string | boolean
         // 导航栏配置
         nav: [
             { text: '首页', link: '/' },

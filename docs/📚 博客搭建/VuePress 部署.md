@@ -1,5 +1,7 @@
 # VuePress 部署
 
+[[toc]]
+
 ## 部署到 Github Pages
 
 ### 创建远程仓库

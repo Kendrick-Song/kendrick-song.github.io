@@ -1,5 +1,15 @@
 # VuePress 相关配置
 
+[[toc]]
+
+本文是在前文 [构建 VuePress 容器镜像](./构建%20VuePress%20容器镜像.md) 的基础上对 VuePress 进行相关配置，操作环境是在前文配置好的容器中。
+
+::: tip 提示
+
+更多 Markdown 拓展语法请参考 [Markdown 拓展 | VuePress (vuejs.org)](https://vuepress.vuejs.org/zh/guide/markdown.html#header-anchors)。
+
+:::
+
 ## 基本配置
 
 根据 [目录结构 | VuePress (vuejs.org)](https://vuepress.vuejs.org/zh/guide/directory-structure.html)，在宿主机挂载目录下（对应容器内 `docs` 目录）新建 `.vuepress` 目录，在该目录下添加 `config.js` 文件，用于配置 VuePress 相关属性。 
@@ -41,7 +51,7 @@ module.exports = {
 
 ::: tip ❓问题
 
-虽然 VuePress 具有热重载的能力，但是有些时候配置文件好像并不能正确的热重载，只能重启容器，~~后续再更改配置就可以热重载了，不需要重启容器。~~ 好像有点随缘，热部署没效果那就重启容器，重启解决 99% 的问题 😄。
+虽然 VuePress 具有热重载的能力，但是有些时候配置文件好像并不能正确的热重载，只能重启容器/重新构建，~~后续再更改配置就可以热重载了，不需要重启容器。~~ 好像有点随缘，热部署没效果那就重启容器，重启解决 99% 的问题 😄。
 
 :::
 
@@ -49,7 +59,7 @@ module.exports = {
 
 ## 样式配置
 
-VuePress 提供了一种添加额外样式的简便方法。你可以创建一个 `.vuepress/styles/index.styl` 文件。这是一个 [Stylus (opens new window)](http://stylus-lang.com/)文件，但你也可以使用正常的 CSS 语法。
+VuePress 提供了一种添加额外样式的简便方法。你可以创建一个 `.vuepress/styles/index.styl` 文件。这是一个 [Stylus (opens new window)](http://stylus-lang.com/) 文件，但你也可以使用正常的 CSS 语法。
 
 用户和主题的 `styles/index.styl` 都会被生成到最终的 CSS 文件中，但是默认情况下，用户的样式会生成在主题的样式后面，因此对于同样的选择器，**用户的样式将具有更高的优先级**。
 
@@ -80,7 +90,7 @@ Typora → 偏好设置 → 外观 → 打开主题文件夹，在主题文件�
 
 
 
-将元素的样式声明复制到 `index.styl` 文件中，我们只想修改颜色和背景，所以仅保留这两项即可。参考刚刚从 Typora 主题文件中得到的颜色，设置样式，如下所示：
+将元素的样式声明复制到 `index.styl` 文件中，即 `.theme-default-content code {}`。我们只想修改颜色和背景，所以仅保留 `color` 和 `background-color` 这两项即可。参考刚刚从 Typora 主题文件中得到的颜色，设置样式，具体如下所示：
 
 ```stylus
 .theme-default-content code {
@@ -99,9 +109,9 @@ Typora → 偏好设置 → 外观 → 打开主题文件夹，在主题文件�
 
 ### 块引用
 
-> VuePress 默认的块引用样式太不起眼了，可以将其修改为类似提示引用块的样式，但是不需要标题。
+> VuePress 默认的块引用样式太不起眼了，可以将其修改为类似「提示引用块」的样式，但是不需要标题。
 
-首先通过浏览器的「检查」功能获取到提示引用块的样式声明，如下图所示：
+首先通过浏览器的「检查」功能获取到「提示引用块」的样式声明，如下图所示：
 
 ![image-20230704112406520](./assets/image-20230704112406520.png)
 
@@ -135,7 +145,7 @@ blockquote {
 
 
 
-呈现结果如图所示：
+将上述配置放入 `index.styl` 文件中，最后呈现结果如图所示：
 
 ![image-20230704115305330](./assets/image-20230704115305330.png)
 
@@ -150,7 +160,7 @@ VuePress 官方提供了一个基于  [YAML front matter](https://vuepress.vuejs
 home: true
 heroImage: ./homepage.jpg
 actionText: 快速开始 →
-actionLink: /md/java/basic/java-basic-oop.md
+actionLink: /
 features:
 - title: 夯实基础
   details: 不积跬步无以至千里, 仰望星空还需脚踏实地
@@ -269,11 +279,44 @@ Git 相关步骤参考 [VuePress 部署](./VuePress%20部署.md)。
 
 配置完成后依然不显示更新时间，请参考 [由 lastUpdated 无效发现的 Docker 容器内 Git 仓库跨文件系统问题](./踩坑记录.md#由-lastupdated-无效发现的-docker-容器内-git-仓库跨文件系统问题)。
 
-配置完成后修改时区显示，请参考 [lastUpdated-时区修改](./踩坑记录.md#lastupdated-时区修改)。
-
 :::
 
+配置完成后修改显示的时区，请参考 [lastUpdated 时区修改](./踩坑记录.md#lastupdated-时区修改)。
 
+配置完成后日期格式不符合国人习惯，默认格式如下图：
+
+![image-20230709141109402](./assets/image-20230709141109402.png)
+
+一个简单的方法是在 `config.js` 中加上下面这段配置：
+
+```js
+module.exports = {
+    ...
+    locales: {
+        '/': {
+            lang: 'zh-CN',
+        }
+    },
+    ...
+}
+```
+
+这里实际上是对 VuePress 进行多语言配置，我们将默认博客路径配置为「中文」，所显示的日期格式就会自动变成中国习惯格式，如下图：
+
+![image-20230709141011257](./assets/image-20230709141011257.png)
+
+### 页面滚动
+
+你可以通过 `themeConfig.smoothScroll` 选项来启用页面滚动效果。
+
+```js
+// .vuepress/config.js
+module.exports = {
+  themeConfig: {
+    smoothScroll: true
+  }
+}
+```
 
 ## 插件配置
 
