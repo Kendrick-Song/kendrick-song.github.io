@@ -34,14 +34,16 @@
 
 2. 使用 `docker build` 命令构建镜像，注意标识镜像的 tag。
 
-2. 使用 `docker run` 命令启动容器，具体如下：
+3. 使用 `docker run` 命令启动容器，具体如下：
 
-   ```sh
-   docker run -itd \  # 后台运行，可以交互
+   ```shell
+   $ docker run -itd \  # 后台运行，可以交互
    	-p 8080:8080 \  # 绑定端口
    	--name my-blog \  # 容器名称
    	--mount type=bind,src=/absolute/path/to/docs,target=/vuepress/docs \  # 绑定挂载
    	kendrick-song/vuepress-base:2.0  # 镜像名称
+   
+   # docker run -itd -p 8080:8080 --name blog  --mount type=bind,src=/Users/kendrick_song/Documents/📒,target=/vuepress/docs blog:1.0
    ```
 
    运行时记得自定义容器名称、绑定挂载路径，并删掉注释。

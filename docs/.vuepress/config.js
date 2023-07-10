@@ -30,18 +30,42 @@ module.exports = {
         // 导航栏配置
         nav: [
             { text: '首页', link: '/' },
-            { text: '🐳 Docker', link: '/🐳 Docker/Get started/Part 7：多容器应用（Multi-container apps)' },
+            { text: '💯 算法刷题', link: '/💯 算法刷题/数据结构/链表相关' },
+            { text: '🐳 Docker', link: '/🐳 Docker/Docker 入门/Docker 概述' },
             { text: '📚 博客搭建', link: '/📚 博客搭建/构建 VuePress 容器镜像' },
             {
                 text: '关于',
                 items: [
-                    { text: 'Github', link: 'https://github.com/Kendrick-Song' },
+                    { text: '💻 从零开始配置一台工作电脑-Mac', link: '/💻 从零开始配置一台工作电脑-Mac' },
                 ]
             }
         ],
         // 侧边栏配置
         sidebar: {
+            '/💯 算法刷题/': [
+                {
+                    title: '数据结构',
+                    collapsable: false, // 可选的, 默认值是 true,
+                    sidebarDepth: 3,    // 可选的, 默认值是 1
+                    children: [
+                        '数据结构/链表相关',
+                    ],
+                },
+            ],
             '/🐳 Docker/': [
+                {
+                    title: 'Docker 入门',
+                    collapsable: false, // 可选的, 默认值是 true,
+                    sidebarDepth: 3,    // 可选的, 默认值是 1
+                    children: [
+                        'Docker 入门/Docker 概述',
+                        'Docker 入门/Docker 常用命令',
+                        'Docker 入门/Docker 镜像',
+                        'Docker 入门/Docker 数据卷',
+                        'Docker 入门/DockerFile',
+                        'Docker 入门/Docker 网络',
+                    ],
+                },
                 {
                     title: 'Get started',
                     collapsable: false, // 可选的, 默认值是 true,
@@ -50,14 +74,6 @@ module.exports = {
                         'Get started/Part 7：多容器应用（Multi-container apps)',
                     ],
                 },
-                {
-                    title: '原理',
-                    collapsable: false, // 可选的, 默认值是 true,
-                    sidebarDepth: 3,    // 可选的, 默认值是 1
-                    children: [
-                        'test/test',
-                    ],
-                }
             ],
             '/📚 博客搭建/': [
                 {
