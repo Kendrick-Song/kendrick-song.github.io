@@ -48,9 +48,9 @@ Docker 是基于 Go 语言开发的开源项目，[官方文档](https://docs.do
 
 **容器化虚拟技术结构：**
 
-==容器化技术不是模拟一个完整的操作系统==
+**容器化技术不是模拟一个完整的操作系统。**
 
-![image-20230508192340564](https://kendrick-song.github.io/my-blog/assets/img/image-20230508192340564.f43f0534.png)
+![image-20230710105548882](./assets/image-20230710105548882.png)
 
 比较传统虚拟机与 Docker 容器技术：
 
@@ -80,7 +80,7 @@ Docker 是基于 Go 语言开发的开源项目，[官方文档](https://docs.do
 
 ## Docker 基本组成
 
-![image-20230508193832916](https://kendrick-song.github.io/my-blog/assets/img/image-20230508193832916.40195a3d.png)
+![image-20230508193832916.40195a3d](./assets/image-20230508193832916.40195a3d.png)
 
 **镜像（image）:**
 
@@ -100,11 +100,11 @@ Docker 利用容器技术，独立运行一个或者一组应用的实例。
 
 ## Hello World 流程
 
-![image-20230508200328434](https://kendrick-song.github.io/my-blog/assets/img/image-20230508200328434.32100c12.png)
+![image-20230508200328434.32100c12](./assets/image-20230508200328434.32100c12.png)
 
 `run`命令的运行流程图：
 
-![image-20230508200507154](https://kendrick-song.github.io/my-blog/assets/img/image-20230508200507154.fa071cfa.png)
+![image-20230508200507154.fa071cfa](./assets/image-20230508200507154.fa071cfa.png)
 
 ## Docker 怎么工作的
 
@@ -112,11 +112,11 @@ Docker 是一个 Client-Server 结构的系统，Docker 的守护进程运行在
 
 Docker-Server 接收到 Docker-Client 的指令，就会执行。
 
-![image-20230508201140565](https://kendrick-song.github.io/my-blog/assets/img/image-20230508201140565.89470198.png)
+![image-20230508201140565.89470198](./assets/image-20230508201140565.89470198.png)
 
 **Docker 为什么比虚拟机快：**
 
-![image-20230508201118387](https://kendrick-song.github.io/my-blog/assets/img/image-20230508201118387.d72281af.png)
+![image-20230508201118387.d72281af](./assets/image-20230508201118387.d72281af.png)
 
 1. Docker 比虚拟机的抽象层更少。
 1. Docker 利用的是宿主机的内核，虚拟机需要 Guest OS。所以新建容器的时候，Docker 不需要加载一个操作系统内核，避免引导。
