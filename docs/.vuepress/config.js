@@ -37,6 +37,7 @@ module.exports = {
                 text: '关于',
                 items: [
                     { text: '💻 从零开始配置一台工作电脑-Mac', link: '/💻 从零开始配置一台工作电脑-Mac' },
+                    { text: '📄 简历编写指南', link: '/📄 简历编写指南' },
                 ]
             }
         ],
@@ -88,7 +89,18 @@ module.exports = {
                         '相关参考',
                     ],
                 }
-            ]
+            ],
+            '/': [
+                {
+                    title: '关于',
+                    collapsable: false, // 可选的, 默认值是 true,
+                    sidebarDepth: 3,    // 可选的, 默认值是 1
+                    children: [
+                        '💻 从零开始配置一台工作电脑-Mac',
+                        '📄 简历编写指南',
+                    ],
+                },
+            ],
         }
     },
     // 插件配置
