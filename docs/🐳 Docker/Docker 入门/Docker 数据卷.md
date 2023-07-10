@@ -58,7 +58,7 @@ local	NAME
 # docker volume inspect  # 查看具体卷情况
 ```
 
-![image-20230509195512776](https://kendrick-song.github.io/my-blog/assets/img/image-20230509195512776.35754c25.png)
+![image-20230710104744615](./assets/image-20230710104744615.png)
 
 匿名挂载默认目录：`/var/lib/docker/volumes/NAME/_data`
 
@@ -86,7 +86,7 @@ CMD /bin/bash
 
 多个容器同步数据。
 
-![image-20230509201615014](https://kendrick-song.github.io/my-blog/assets/img/image-20230509201615014.2331f35b.png)
+![image-20230710104756671](./assets/image-20230710104756671.png)
 
 ```shell
 # --volumes-from

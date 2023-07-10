@@ -2,7 +2,7 @@
 
 ## 理解 Docker0
 
-![image-20230510221421430](https://kendrick-song.github.io/my-blog/assets/img/image-20230510221421430.e5065833.png)
+![image-20230710104445855](./assets/image-20230710104445855.png)
 
 三个网络
 
@@ -23,7 +23,7 @@ ping
 
 > veth-pair 是一对虚拟设备接口，它们成对出现，一段连着协议，一段彼此相连，充当一个桥梁，连接各种虚拟网络设备
 
-![image-20230510224624941](https://kendrick-song.github.io/my-blog/assets/img/image-20230510224624941.dea16219.png)
+![image-20230710104509658](./assets/image-20230710104509658.png)
 
 **Docker 中的所有网络接口都是虚拟的，转发效率高。**
 
@@ -31,7 +31,7 @@ ping
 
 查看所有 Docker 网络
 
-![image-20230510230948502](https://kendrick-song.github.io/my-blog/assets/img/image-20230510230948502.1a613d7f.png)
+![image-20230710104527551](./assets/image-20230710104527551.png)
 
 **网络模式：**
 

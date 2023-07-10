@@ -13,9 +13,9 @@ DockerFile 是用来构建 Docker 镜像的文件
 
 官方镜像 DockerFile 查看：
 
-![image-20230510165553842](https://kendrick-song.github.io/my-blog/assets/img/image-20230510165553842.4649f65d.png)
+![image-20230710104556467](./assets/image-20230710104556467.png)
 
-![image-20230510165800931](https://kendrick-song.github.io/my-blog/assets/img/image-20230510165800931.d1b7ddee.png)
+![image-20230710104619776](./assets/image-20230710104619776.png)
 
 > 很多官方镜像都是基础包，很多功能没有，需要自行添加。
 
@@ -28,7 +28,7 @@ DockerFile 是用来构建 Docker 镜像的文件
 - `#` 表示注释
 - 每个指令都会创建提交一个新的镜像层
 
-![image-20230510170007183](https://kendrick-song.github.io/my-blog/assets/img/image-20230510170007183.0e84e73a.png)
+![image-20230710104632107](./assets/image-20230710104632107.png)
 
 DockerFile 是面向开发的，发布项目做镜像需要编写 DockerFile 文件。
 
@@ -102,13 +102,13 @@ docker run -it 镜像
 docker history 镜像
 ```
 
-![image-20230510173045442](https://kendrick-song.github.io/my-blog/assets/img/image-20230510173045442.2a23b3ff.png)
+![image-20230710104712535](./assets/image-20230710104712535.png)
 
 **自制 Tomcat 镜像：**
 
 1. 准备镜像文件，Tomcat 压缩包，JDK 压缩包
 
-![image-20230510174753384](https://kendrick-song.github.io/my-blog/assets/img/image-20230510174753384.35f96f3d.png)
+![image-20230710104654091](./assets/image-20230710104654091.png)
 
 2. 编写 DockerFile 文件
 

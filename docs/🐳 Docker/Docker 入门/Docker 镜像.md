@@ -18,7 +18,7 @@ UnionFS 主要包括以下两个文件系统：
 
 位于 BootFS 之上，是各种不同操作系统的发行版，比如 Ubuntu，CentOS等等，包含系统中的标准目录及文件。
 
-![image-20230509171559131](https://kendrick-song.github.io/my-blog/assets/img/image-20230509171559131.e05244ca.png)
+![image-20230710104819936](./assets/image-20230710104819936.png)
 
 对于一个精简的 OS，RootFS 可以很小，因为它只需要包含最基本的命令、工具和程序库就足够了，不需要引导相关的文件。
 
