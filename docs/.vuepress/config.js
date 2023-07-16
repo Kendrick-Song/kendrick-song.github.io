@@ -30,6 +30,7 @@ module.exports = {
         // 导航栏配置
         nav: [
             { text: '首页', link: '/' },
+            { text: '☕️ Java', link: '/☕️ Java/反射' },
             { text: '💯 算法刷题', link: '/💯 算法刷题/数据结构/链表相关' },
             { text: '🐳 Docker', link: '/🐳 Docker/Docker 入门/Docker 概述' },
             { text: '📚 博客搭建', link: '/📚 博客搭建/构建 VuePress 容器镜像' },
@@ -43,6 +44,17 @@ module.exports = {
         ],
         // 侧边栏配置
         sidebar: {
+            '/☕️ Java/': [
+                {
+                    title: '☕️ Java',
+                    collapsable: false, // 可选的, 默认值是 true,
+                    sidebarDepth: 3,    // 可选的, 默认值是 1
+                    children: [
+                        '反射',
+                        '📝 Tips',
+                    ],
+                },
+            ],
             '/💯 算法刷题/': [
                 {
                     title: '数据结构',
